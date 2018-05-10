@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RPC 1 Test</title>
+</head>
+<body>
+<form action="http://127.0.0.1:8000/cloud/v1/add" method="post">
+    <p>First name:&nbsp;<input type="text" id="firstName" name="firstName"></p>
+    <p>Last name:&nbsp;<input type="text" id="lastName" name="lastName"></p>
+    <p><input id="btn" type="submit" value="Add Name" name="btn"></p>
+</form>
+<a href="#" id="listLink" name="listLink">Get List</a>
+<p>
+</p>
+<ul id="list"></ul>
+<script defer type="application/dart" src="index.dart"></script>
+<script defer src="packages/browser/dart.js"></script>
+</body>
+</html>

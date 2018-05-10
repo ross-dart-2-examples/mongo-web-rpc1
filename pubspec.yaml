@@ -1,0 +1,19 @@
+name: dart_mongo_server_rpc1
+description: A sample command-line application.
+version: 0.0.1
+#homepage: https://www.example.com
+#author: child <email@example.com>
+
+environment:
+#  sdk: '>=2.0.0-dev.49.0'
+
+dependencies:
+  rpc: any
+  mongo_dart: any
+#  path: ^1.4.1
+
+dev_dependencies:
+  test: ^0.12.0
+  build_runner: any
+  build_web_compilers: any
+  browser: any
