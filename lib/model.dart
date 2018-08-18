@@ -1,7 +1,7 @@
 class Name {
   String firstName;
   String lastName;
-  Map toMap() {
+  Map<String, dynamic> toMap() {
     return {
       'firstName': firstName,
       'lastName': lastName

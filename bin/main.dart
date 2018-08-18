@@ -9,29 +9,30 @@ import 'dart:async';
 
 @ApiClass(version: 'v1', name: 'cloud')
 class Cloud {
-  final List<Name> names = new List();
 
  @ApiMethod(path: 'list', method: 'GET')
  Future<List<Name>> makeList() async {
   // List names = new List();
-   names.clear();
+   List<Name> names = [];
    Db db = new Db('mongodb://localhost:27017/rpc1');
    await db.open();
-   DbCollection collection = db.collection('names');
+     DbCollection collection = db.collection('names');
      await collection.find().forEach((Map element) {
        Name name = new Name()
-       ..firstName = element['firstName']
-       ..lastName = element['lastName'];
- //      print(name);
+         ..firstName = element['firstName']
+         ..lastName = element['lastName'];
+             print(name);
        names.add(name);
      });
-     await db.close();
+   await db.close();
    return names;
+
  }
 
   @ApiMethod(path: 'add', method: 'POST')
   Name add(Name name) {
   //  DbName newName = new DbName();
+
     Db db = new Db('mongodb://localhost:27017/rpc1');
     db.open().then((_){
       DbCollection collection = db.collection('names');
@@ -53,7 +54,7 @@ main(List<String> arguments) async {
 //  print('Hello world: ${dart_mongo_server_rpc1.calculate()}!');
 
   _apiServer.addApi(new Cloud());
-  io.HttpServer server = await io.HttpServer.bind('127.0.0.1', 8000);
+  io.HttpServer server = await io.HttpServer.bind('rossalbertson.dynv6.net', 8000);
   server.listen(_apiServer.httpRequestHandler);
 
 }
